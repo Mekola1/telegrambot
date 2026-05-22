@@ -1,0 +1,17 @@
+[Unit]
+Description=College Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/college-telegram-bot
+EnvironmentFile=/opt/college-telegram-bot/.env
+ExecStart=/opt/college-telegram-bot/.venv/bin/python -m college_bot.main
+Restart=always
+RestartSec=5
+User=collegebot
+Group=collegebot
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,1 @@
+"""College Telegram bot package."""
