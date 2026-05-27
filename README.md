@@ -653,7 +653,9 @@ WHERE status IN ('new', 'approved');
 | `support_categories.id` | `support_tickets.category_id` | 1 до N | Категорія має багато звернень. |
 
 ## UML / ER-діаграма
-```
+# ER-діаграма бази даних
+
+```mermaid
 erDiagram
     USERS {
         bigint id PK
