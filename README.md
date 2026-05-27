@@ -653,10 +653,7 @@ WHERE status IN ('new', 'approved');
 | `support_categories.id` | `support_tickets.category_id` | 1 до N | Категорія має багато звернень. |
 
 ## UML / ER-діаграма
-
-Mermaid ER-діаграма бази даних:
-
-```mermaid
+```
 erDiagram
     USERS {
         bigint id PK
@@ -674,8 +671,8 @@ erDiagram
     }
 
     USER_ROLES {
-        bigint user_id PK FK
-        bigint role_id PK FK
+        bigint user_id PK, FK
+        bigint role_id PK, FK
     }
 
     COURSES {
@@ -687,7 +684,7 @@ erDiagram
 
     STUDENTS {
         bigint id PK
-        bigint user_id UK FK
+        bigint user_id UK, FK
         text first_name
         text patronymic
         text last_name
@@ -698,7 +695,7 @@ erDiagram
 
     TEACHERS {
         bigint id PK
-        bigint user_id UK FK
+        bigint user_id UK, FK
         text first_name
         text patronymic
         text last_name
@@ -714,13 +711,13 @@ erDiagram
     }
 
     STUDENT_SUBJECTS {
-        bigint student_id PK FK
-        bigint subject_id PK FK
+        bigint student_id PK, FK
+        bigint subject_id PK, FK
     }
 
     SUBJECT_TEACHERS {
-        bigint subject_id PK FK
-        bigint teacher_id PK FK
+        bigint subject_id PK, FK
+        bigint teacher_id PK, FK
     }
 
     SCHEDULES {
@@ -809,7 +806,7 @@ erDiagram
 
     CONSULTATION_REMINDER_LOGS {
         bigint id PK
-        bigint request_id UK FK
+        bigint request_id UK, FK
         timestamptz sent_at
     }
 
@@ -876,6 +873,7 @@ erDiagram
     STUDENTS ||--o{ SUPPORT_TICKETS : opens
     USERS ||--o{ REQUEST_STATUS_HISTORY : changes
 ```
+
 
 Діаграма логіки авторизації та вибору ролі:
 
